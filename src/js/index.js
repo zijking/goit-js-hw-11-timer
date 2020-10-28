@@ -10,6 +10,7 @@ class CountdownTimer {
     this.hoursEl = document.querySelector(this.selector + ' [data-value="hours"]');
     this.minsEl = document.querySelector(this.selector + ' [data-value="mins"]');
     this.secsEl = document.querySelector(this.selector + ' [data-value="secs"]');
+    
     this.DEALEY = 1000;
     this.intervalId = null;
   }
@@ -17,7 +18,7 @@ class CountdownTimer {
   
 
 
-  getDaysHoursMinsSecsToAnd() {
+  getDaysHoursMinsSecsToEnd() {
 
     this.timeAnd = this.targetDate - Date.now();
     /*
@@ -52,10 +53,10 @@ class CountdownTimer {
   }
 
   start() {
-    this.intervalId = setInterval(() => { this.onTick(this.getDaysHoursMinsSecsToAnd()) }, this.DEALEY)
+    this.intervalId = setInterval(() => { this.onTick(this.getDaysHoursMinsSecsToEnd()) }, this.DEALEY)
    
   }
-  onTick({days, hours,mins,secs}) {
+  onTick({days, hours, mins, secs}) {
     this.daysEl.textContent = days;
     this.hoursEl.textContent = hours;
     this.minsEl.textContent = mins;
